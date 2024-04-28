@@ -9,7 +9,7 @@ use Tests\TestCase;
 class TinyUrlTest extends TestCase
 {
     
-    public function testTinyUrlBasicImplementation(): void
+    public function testBasicImplementation(): void
     {
         $sourceUrl = 'https://' . Str::random(40);
         $service = $this->getMockBuilder(TinyUrlServiceProvider::class)
@@ -23,7 +23,7 @@ class TinyUrlTest extends TestCase
         $this->assertIsString($destinationUrl);
     }
     
-    public function testTinyUrlResponseFormat(): void
+    public function testResponseFormat(): void
     {
         $sourceUrl = 'https://' . Str::random(40);
         $service = new TinyUrlServiceProvider($this->app);
