@@ -1,5 +1,7 @@
 <?php
 
+use App\Providers\TinyUrlServiceProvider;
+
 return [
-    App\Providers\TinyUrlServiceProvider::class,
+    TinyUrlServiceProvider::class
 ];

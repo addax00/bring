@@ -2,15 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Providers\TinyUrlServiceProvider;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class ShortUrlsController extends Controller
 {
-
-    public function index(): JsonResponse
+    
+    private const PARAM_URL = 'url';
+    
+    public function index(Request $request, TinyUrlServiceProvider $tinyUrl): JsonResponse
     {
+        $sourceUrl = $request->get(self::PARAM_URL, '');
+        $destinationUrl = $tinyUrl->getUrl($sourceUrl);
+        
         return new JsonResponse([
-            'url' => '<https://example.com/12345>'
+            'url' => $destinationUrl
         ]);
     }    
 }
