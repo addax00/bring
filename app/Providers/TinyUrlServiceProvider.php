@@ -11,8 +11,9 @@ class TinyUrlServiceProvider extends ServiceProvider {
     private const ENDPOINT = 'https://tinyurl.com/api-create.php';
     private const PARAM_URL = 'url';
 
-    public function __construct(Application $app) {
-        $this->app = $app;
+    public function __construct(Application $app)
+    {
+        parent::__construct($app);
     }
 
     public function register(): void {
@@ -31,7 +32,6 @@ class TinyUrlServiceProvider extends ServiceProvider {
             ]);
             return $response->body();
         } catch (Exception $ex) {
-            
         }
 
         return '';
