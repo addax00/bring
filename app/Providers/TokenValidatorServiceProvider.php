@@ -34,7 +34,7 @@ class TokenValidatorServiceProvider extends ServiceProvider
         for ($i = 0; $i < $length; $i++) {
             if (array_key_exists($in[$i], self::BRACKET_SET)) {
                 $bracketStack[] = self::BRACKET_SET[$in[$i]];
-            } else if (!empty($bracketStack) && array_pop($bracketStack) !== $in[$i]) {
+            } else if (array_pop($bracketStack) !== $in[$i]) {
                 return false;
             }
         }
