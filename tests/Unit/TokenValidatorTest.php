@@ -26,6 +26,7 @@ class TokenValidatorTest extends TestCase
     {
         $service = new TokenValidatorServiceProvider($this->app);
         $tokens = [
+            '   ',
             'ab',
             'ab{()}',
             '{)',
